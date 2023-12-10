@@ -186,12 +186,14 @@ body {
 /* About Section */
 .about,
 .bouquet,
+.products,
 .contact {
   padding: 8rem 7% 1.4rem;
 }
 
 .about h2,
 .bouquet h2,
+.products h2,
 .contact h2 {
   text-align: center;
   font-size: 2.6rem;
@@ -200,6 +202,7 @@ body {
 
 .about h2 span,
 .bouquet h2 span,
+.products h2 span,
 .contact h2 span {
   color: var(--primary);
 }
@@ -266,6 +269,77 @@ body {
 
 .bouquet .row .bouquet-card .bouquet-card-title {
   margin-top: 1rem auto 0.5rem;
+}
+
+/* Products Section */
+.products .row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.products .product-card {
+  text-align: center;
+  border: 1px solid var(--primary);
+  padding: 2rem;
+}
+
+.products .product-icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.products .product-icons a {
+  width: 4rem;
+  height: 4rem;
+  color: #000;
+  margin: 0.3rem;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.products .product-icons a:hover {
+  color: #fff;
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.products .product-image {
+  padding: 1rem 0;
+}
+
+.products .product-image img {
+  height: 25rem;
+}
+
+.products .product-content h3 {
+  font-size: 2rem;
+}
+
+.products .product-stars {
+  font-size: 1.7rem;
+  padding: 0.8rem;
+  color: var(--primary);
+}
+
+.products .product-stars .star-full {
+  fill: var(--primary);
+}
+
+.products .product-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.products .product-price span {
+  text-decoration: line-through;
+  font-weight: lighter;
+  font-size: 1rem;
 }
 
 /* Contact Section */
