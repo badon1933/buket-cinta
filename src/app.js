@@ -102,13 +102,23 @@ form.addEventListener("keyup", function () {
 });
 
 /* Kirim data ketika tombol checkout di klik */
-checkoutButton.addEventListener("click", function (e) {
+checkoutButton.addEventListener("click", async function (e) {
   e.preventDefault();
   const formData = new FormData(form);
   const data = new URLSearchParams(formData);
   const objData = Object.fromEntries(data);
-  const message = formatMessage(objData);
-  window.open("http://wa.me/6289678361923?text=" + encodeURIComponent(message));
+
+  /* Minta transaction token menggunakan AJAX / Fetch */
+  try {
+    const response = await fetch("php/placeOrder.php", {
+      method: "POST",
+      body: data,
+    });
+    const token = await response.text();
+    window.snap.pay(token);
+  } catch (error) {
+    console.log(error.message);
+  }
 });
 
 /* Format pesan whatsapp */
