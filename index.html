@@ -26,7 +26,7 @@
     ></script>
 
     <!-- App -->
-    <script src="src/app.js"></script>
+    <script src="src/app.js" async></script>
   </head>
 
   <body>
@@ -93,8 +93,18 @@
           </h4>
 
           <div class="form-container" x-show="$store.cart.items.length">
-            <form action="" id="checkout-form">
+            <form action="" id="checkoutForm">
               <h5>Customer Detail</h5>
+              <input
+                type="hidden"
+                name="items"
+                x-model="JSON.stringify($store.cart.items)"
+              />
+              <input
+                type="hidden"
+                name="total"
+                x-model="JSON.stringify($store.cart.total)"
+              />
 
               <label for="name">
                 <span>Name</span>
@@ -117,9 +127,10 @@
               </label>
 
               <button
-                class="checkout-button"
+                class="checkout-button disabled"
                 type="submit"
                 id="checkout-button"
+                value="checkout"
               >
                 Checkout
               </button>
